@@ -15,7 +15,7 @@ def main():
 
 
     labels = labelsframe.values
-    print(labels)
+
     features = featuresframe.values
     features_mat= np.asarray(features)
     covariance = np.cov(features_mat.T)
@@ -28,7 +28,8 @@ def main():
     #print(eigen_space_list.T)
 
     final_PCA = eigen_space_list.T
-    #print(final_PCA)
+    uncompressed = np.matmul(compressed_eigen,eigen_space_list)
+    print(np.mean(features.T-uncompressed))
     with plt.style.context('seaborn-whitegrid'):
         plt.figure(figsize=(6, 4))
         for sample in range(120):
