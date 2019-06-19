@@ -29,7 +29,8 @@ def main():
 
     final_PCA = eigen_space_list.T
     uncompressed = np.matmul(compressed_eigen,eigen_space_list)
-    print(np.mean(features.T-uncompressed))
+    print(eigenvalues)
+    #print(np.mean(features.T-uncompressed))
     with plt.style.context('seaborn-whitegrid'):
         plt.figure(figsize=(6, 4))
         for sample in range(120):
